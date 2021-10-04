@@ -44,7 +44,7 @@ app.get('/api/:time', function (req, res)
     daDate = funnyDate;
   console.log(funnyDate.toString());
 
-  if (daDate.toString() == "Invalid Data")
+  if (daDate.toString() == "Invalid Date")
     res.json({"error": daDate.toString()});
   else
   {
