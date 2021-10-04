@@ -55,6 +55,8 @@ app.get('/api/:time', function (req, res)
     let dumbassDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     
     lolDate += dumbassDays[daDate.getDay()] + ", ";
+    lolDate += daDate.getDate() + " ";
+    lolDate += daDate.getFullYear();
 
     res.json({"unix": Math.floor(daDate), "utc":lolDate});
   }
