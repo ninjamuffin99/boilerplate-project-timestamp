@@ -33,6 +33,8 @@ app.get('/api/:time', function (req, res)
   var funnyDate = new Date(Math.floor(req.params.time));
 
 
+  if (daDate.toString() == "Invalid Date")
+    daDate = funnyDate;
   console.log(funnyDate.toString());
 
   res.json({"unix": Math.floor(daDate), "utc":daDate.toString()});
