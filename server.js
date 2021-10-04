@@ -55,7 +55,7 @@ app.get('/api/:time', function (req, res)
 
     // Fri, Dec 25 2015 00:00:00 GMT+0000 (Coordinated Universal Time)
 
-    lolDate = lolDate.substring(0, lolDate.split("(")[0].length);
+    lolDate = lolDate.substring(0, lolDate.split("(")[0].length - 1);
 
     res.json({"unix": Math.floor(daDate), "utc":lolDate});
   }
