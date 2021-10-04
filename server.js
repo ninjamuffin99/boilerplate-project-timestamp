@@ -30,7 +30,7 @@ app.get('/api/:time', function (req, res)
 {
   var daDate = new Date(req.params.time);
 
-  res.json({"unix": daDate, "utc":daDate.toString()});
+  res.json({"unix": Math.floor(daDate / 1000), "utc":daDate.toString()});
 });
 
 
