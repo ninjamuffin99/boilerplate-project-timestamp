@@ -30,6 +30,12 @@ app.get('/api/:time', function (req, res)
 {
   var daDate = new Date(req.params.time);
 
+  var funnyDate = new Date(Math.floor(req.params.time));
+
+
+  if (Math.floor(daDate) == null)
+    daDate = funnyDate;
+
   res.json({"unix": Math.floor(daDate), "utc":daDate.toString()});
 });
 
