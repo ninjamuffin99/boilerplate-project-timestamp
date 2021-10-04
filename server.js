@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 
 
 // your first API endpoint... 
-app.get("/api/hello", function (req, res) {
+app.get("/api/hello", function (req, res) { 
   res.json({greeting: 'hello API'});
 });
 
@@ -33,8 +33,7 @@ app.get('/api/:time', function (req, res)
   var funnyDate = new Date(Math.floor(req.params.time));
 
 
-  if (Math.floor(daDate) == null)
-    daDate = funnyDate;
+  console.log(funnyDate.toString());
 
   res.json({"unix": Math.floor(daDate), "utc":daDate.toString()});
 });
