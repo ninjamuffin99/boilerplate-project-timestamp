@@ -28,9 +28,20 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/:time', function (req, res)
 {
+
+
   var daDate = new Date(req.params.time);
 
   var funnyDate = new Date(Math.floor(req.params.time));
+
+  if (!req.params.time)
+  {
+    console.log('EMPTY DATE');
+
+
+    daDate = Date.now();
+  }
+    
 
 
   if (daDate.toString() == "Invalid Date")
