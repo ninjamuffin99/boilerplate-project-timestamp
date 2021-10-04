@@ -48,14 +48,13 @@ app.get('/api/:time', function (req, res)
     res.json({"error": daDate.toString()});
   else
   {
-    let lolDate = daDate.toString();
+    let lolDate = "";
 
-    // Fri Dec 25 2015 00:00:00 GMT+0000 (Coordinated Universal Time)
-    lolDate = lolDate.substring(0, 3) + "," + lolDate.substring(3, lolDate.length);
-
-    // Fri, Dec 25 2015 00:00:00 GMT+0000 (Coordinated Universal Time)
-
-    lolDate = lolDate.substring(0, lolDate.split("+")[0].length);
+    // Thu, 01 Jan 1970 00:00:00 GMT
+   
+    let dumbassDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    
+    lolDate += dumbassDays[daDate.getDay()] + ", ";
 
     res.json({"unix": Math.floor(daDate), "utc":lolDate});
   }
