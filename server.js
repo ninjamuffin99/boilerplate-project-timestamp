@@ -53,10 +53,16 @@ app.get('/api/:time', function (req, res)
     // Thu, 01 Jan 1970 00:00:00 GMT
    
     let dumbassDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    
+    let dumbMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+
+
     lolDate += dumbassDays[daDate.getDay()] + ", ";
     lolDate += daDate.getDate() + " ";
+    lolDate += dumbMonth[daDate.getMonth()] + " ";
     lolDate += daDate.getFullYear();
+
+    console.log(daDate.toGMTString());
 
     res.json({"unix": Math.floor(daDate), "utc":lolDate});
   }
