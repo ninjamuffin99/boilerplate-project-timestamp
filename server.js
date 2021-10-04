@@ -38,16 +38,7 @@ app.get('/api/:time', function (req, res)
   var daDate = new Date(req.params.time);
 
   var funnyDate = new Date(Math.floor(req.params.time));
-
-  if (!req.params.time)
-  {
-    console.log('EMPTY DATE');
-
-
-    daDate = Date.now();
-  }
     
-
 
   if (daDate.toString() == "Invalid Date")
     daDate = funnyDate;
@@ -57,7 +48,12 @@ app.get('/api/:time', function (req, res)
     res.json({"error": daDate.toString()});
   else
   {
-    res.json({"unix": Math.floor(daDate), "utc":daDate.toString()});
+    let lolDate = daDate.toString();
+
+    // Fri Dec 25 2015 00:00:00 GMT+0000 (Coordinated Universal Time)
+    lolDate = lolDate.substring(0, 3) + "," + lolDate.substring(3, lolDate.length);
+
+    res.json({"unix": Math.floor(daDate), "utc":lolDate});
   }
   
 });
